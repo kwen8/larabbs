@@ -26,9 +26,14 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a href="{{ route('login') }}">登录</a></li>
-                    <li><a href="{{ route('register') }}">注册</a></li>
+                    <li><a href="{{ route('login') }}" id="login">登录</a></li>
+                    <li><a href="{{ route('register') }}" id="register">注册</a></li>
                 @else
+                    <li>
+                        <a href="{{ route('topics.create') }}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
@@ -51,7 +56,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('logout') }}"
+                                <a href="{{ route('logout') }}" id="logout"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
