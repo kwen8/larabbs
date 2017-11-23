@@ -17,7 +17,12 @@ class TopicObserver
 
     public function updating(Topic $topic)
     {
-        //
+        // 如 slug 字段与旧的topic不一样，即使用翻译器对 title 进行翻译
+            // 推送任务队列
+        $oldTitle = Topic::find($topic->id)->title;
+        if($topic->title !== $oldTitle) {
+            dispatch(new TranslateSlug($topic));
+        }
     }
 
     public function saving(Topic $topic)
