@@ -8,7 +8,7 @@ class Model extends EloquentModel
 {
     public function scopeRecent($query)
     {
-        return $query->orderBy('id', 'desc');
+        return $query->orderBy('updated_at', 'desc');
     }
 
     public function scopeOrdered($query)
